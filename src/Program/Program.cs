@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using Library;
+using Composicion_Delegacion;
 
 namespace Project
 {
@@ -14,14 +14,31 @@ namespace Project
     /// </summary>
     public static class Program
     {
-        /// <summary>
-        /// Punto de entrada al programa principal.
-        /// </summary>
         public static void Main()
         {
-            Train train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            Vehiculo electrico = 
+            Vehiculo.CrearElectrico(
+                "Tesla",
+                "Model e");
+            Vehiculo combustion=
+            Vehiculo.CrearCombustion(
+                "Renault",
+                "Kwid");
+            Console.WriteLine("=== VEHICULO ELECTRICO ===");
+            Console.WriteLine(electrico.MostrarEstado());
+            Console.WriteLine(electrico.Encender());
+            Console.WriteLine(electrico.Frenar());
+            Console.WriteLine(electrico.Apagar());
+
+            Console.WriteLine();
+
+            Console.WriteLine("=== VEHICULO COMBUSTION ===");
+            Console.WriteLine(combustion.MostrarEstado());
+            Console.WriteLine(combustion.Encender());
+            Console.WriteLine(combustion.Frenar());
+            Console.WriteLine(combustion.Apagar());
+
+
         }
     }
 }
